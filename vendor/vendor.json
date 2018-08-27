@@ -519,6 +519,12 @@
 			"revisionTime": "2018-08-22T16:00:39Z"
 		},
 		{
+			"checksumSHA1": "aiZy5j5jCI9Ps29OHxMz5yj8x4g=",
+			"path": "gopkg.in/redis.v6",
+			"revision": "1614e579ed966441b8e0c3ccea1dd0fbbd93a6ae",
+			"revisionTime": "2018-08-23T13:15:29Z"
+		},
+		{
 			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
 			"path": "gopkg.in/yaml.v2",
 			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
