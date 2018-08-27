@@ -1,0 +1,11 @@
+ type: google.api.Service
+ config_version: 3
+
+ http:
+   rules:
+   - selector: apidef.VanityImportService.QueryImportMetaInfo
+     post: /v1/querymeta
+     body: "*"
+   - selector: apidef.VanityImportService.UpdateModuleMetaInfo
+     post: /v1/updatemeta
+     body: "*"

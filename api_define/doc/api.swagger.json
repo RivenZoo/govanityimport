@@ -1,0 +1,176 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/querymeta": {
+      "post": {
+        "operationId": "QueryImportMetaInfo",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/apidefImportMetaInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apidefImportMetaInfoReq"
+            }
+          }
+        ],
+        "tags": [
+          "VanityImportService"
+        ]
+      }
+    },
+    "/v1/updatemeta": {
+      "post": {
+        "operationId": "UpdateModuleMetaInfo",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/apidefUpdateModuleMetaInfoResp"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/apidefUpdateModuleMetaInfoReq"
+            }
+          }
+        ],
+        "tags": [
+          "VanityImportService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "apidefImportMetaInfoReq": {
+      "type": "object",
+      "properties": {
+        "import_path": {
+          "type": "string"
+        }
+      }
+    },
+    "apidefImportMetaInfoResp": {
+      "type": "object",
+      "properties": {
+        "ret": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string"
+        },
+        "meta_info": {
+          "$ref": "#/definitions/apidefModuleMetaInfo"
+        }
+      }
+    },
+    "apidefModuleMetaInfo": {
+      "type": "object",
+      "properties": {
+        "import_info": {
+          "$ref": "#/definitions/apidefVanityImportMetaInfo"
+        },
+        "source_info": {
+          "$ref": "#/definitions/apidefSourceMetaInfo"
+        },
+        "sub_import_dirs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "apidefSourceMetaInfo": {
+      "type": "object",
+      "properties": {
+        "module_import_path": {
+          "type": "string"
+        },
+        "home_url": {
+          "type": "string"
+        },
+        "dir_pattern": {
+          "type": "string"
+        },
+        "file_pattern": {
+          "type": "string"
+        },
+        "doc_host": {
+          "type": "string"
+        }
+      }
+    },
+    "apidefUpdateModuleMetaInfoReq": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string"
+        },
+        "meta_info": {
+          "$ref": "#/definitions/apidefModuleMetaInfo"
+        }
+      }
+    },
+    "apidefUpdateModuleMetaInfoResp": {
+      "type": "object",
+      "properties": {
+        "ret": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "msg": {
+          "type": "string"
+        },
+        "trace_id": {
+          "type": "string"
+        }
+      }
+    },
+    "apidefVanityImportMetaInfo": {
+      "type": "object",
+      "properties": {
+        "module_import_path": {
+          "type": "string"
+        },
+        "vcs": {
+          "type": "string"
+        },
+        "repo_url": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

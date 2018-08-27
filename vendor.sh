@@ -51,11 +51,13 @@ function add_by_module_path {
 	repo=$1
 	spec=$2
 
+	go get -u ${repo}
+
 	fetch_url=${repo}
 	if [[ -n "${spec}" ]]; then
 		fetch_url=${fetch_url}@${spec}
 	fi
-	${GOVENDOR} get ${fetch_url}
+	${GOVENDOR} add ${fetch_url}
 }
 
 function add {
@@ -91,7 +93,7 @@ function update {
 		fetch_url=${fetch_url}@${spec}
 		update_cmd=cd ${local_repo} && git fetch --all --tags --prune && git checkout ${spec}
 	fi
-    (${update_cmd})
+	(${update_cmd})
 
 	${GOVENDOR} update ${fetch_url}
 }

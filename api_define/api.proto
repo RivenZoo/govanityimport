@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package apidef;
+
+option go_package = "govanityimport/proto/apidef";
+
+message VanityImportMetaInfo {
+    string module_import_path = 1;
+    string vcs = 2;
+    string repo_url = 3;
+}
+
+message SourceMetaInfo {
+    string module_import_path = 1;
+    string home_url = 2;
+    string dir_pattern = 3;
+    string file_pattern = 4;
+    string doc_host = 5;
+}
+
+message ModuleMetaInfo {
+    VanityImportMetaInfo import_info = 1;
+    SourceMetaInfo source_info = 2;
+    repeated string sub_import_dirs = 3;
+}
+
+message SubImportDirToRoot {
+    string sub_import_dir = 1;
+    string root_import_dir = 2;
+}
+
+service VanityImportService {
+    rpc QueryImportMetaInfo(ImportMetaInfoReq) returns (ImportMetaInfoResp) {}
+    rpc UpdateModuleMetaInfo(UpdateModuleMetaInfoReq) returns (UpdateModuleMetaInfoResp) {}
+}
+
+message ImportMetaInfoReq {
+    string import_path = 1;
+}
+
+message ImportMetaInfoResp {
+    int32 ret = 1;
+    string msg = 2;
+    string trace_id = 3;
+    ModuleMetaInfo meta_info = 4;
+}
+
+message UpdateModuleMetaInfoReq {
+    string action = 1;
+    ModuleMetaInfo meta_info = 2;
+}
+
+message UpdateModuleMetaInfoResp {
+    int32 ret = 1;
+    string msg = 2;
+    string trace_id = 3;
+}
