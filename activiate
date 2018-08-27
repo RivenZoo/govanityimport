@@ -1,0 +1,118 @@
+
+
+OS=$(uname)
+PYTHON_BIN=$(which python)
+GOENV_HOME=${HOME}/.goenv
+
+# *** function define ***
+# exit method
+function deactiviate {
+	if [ -n "${OLD_GOPATH}" ]; then
+		export GOPATH=${OLD_GOPATH}
+		unset OLD_GOPATH
+	fi
+	if [ -n "${OLD_PS1}" ]; then
+		export PS1=${OLD_PS1}
+		unset OLD_PS1
+	fi
+	if [ -n "${OLD_WORKDIR}" ]; then
+		cd ${OLD_WORKDIR}
+		unset OLD_WORKDIR
+	fi
+}
+
+# internal function
+function __log {
+	echo $(date +"%Y%m%d %H:%M:%S") " $@"
+}
+
+function __get_realpath() {
+	fpath=$1
+	if [[ -z "${fpath}" ]]; then
+		fpath=.
+	fi
+	if [[ -n "${PYTHON_BIN}" ]]; then
+		${PYTHON_BIN} -c "import os; print(os.path.realpath(\"${fpath}\"))"
+	else
+		readlink -f ${fpath}
+	fi
+}
+
+function __project_gopath() {
+	if [[ -z "${PROJ_NAME}" ]]; then
+		__log "PROJ_NAME=${PROJ_NAME} invalid"
+		return -1
+	fi
+	pathmd5=
+	if [[ "${OS}" = "Linux" ]]; then
+		pathmd5=$(echo ${PROJ_NAME} | md5sum | awk '{print $1}')
+	elif [[ "${OS}" = "Darwin" ]]; then
+		pathmd5=$(echo ${PROJ_NAME} | md5)
+	else
+		__log "os ${OS} not support"
+		return -1
+	fi
+	echo ${GOENV_HOME}/${pathmd5:0:16}
+}
+
+function __set_goenv {
+	if [ ! -f "${GOENV_GOPATH}/workdir" ]; then
+		mkdir -p ${GOENV_HOME}
+		mkdir -p ${GOENV_GOPATH}/src ${GOENV_GOPATH}/bin ${GOENV_GOPATH}/pkg
+		ln -s ${WORKDIR} ${GOENV_GOPATH}/src/${PROJ_NAME}
+		echo ${WORKDIR} > ${GOENV_GOPATH}/workdir
+	fi
+	
+	if [[ -n "${OLD_GOPATH}" ]]; then
+		__log "already in project gopath"
+		return 0
+	fi
+
+	# export
+	OLD_GOPATH=${OLD_GOPATH:-${GOPATH}}
+	GOPATH=${GOENV_GOPATH}:${OLD_GOPATH}
+
+	OLD_PS1=${OLD_PS1:-${PS1}}
+	PS1="${OLD_PS1} ($GOENV_GOPATH) "
+
+	OLD_WORKDIR=${OLD_WORKDIR:-${WORKDIR}}
+
+	export OLD_PS1
+	export PS1
+	export GOPATH
+	export OLD_GOPATH
+	export OLD_WORKDIR
+
+	cd ${GOENV_GOPATH}/src/${PROJ_NAME}
+}
+
+function __get_shell {
+	cmd=$(ps -p $$ -o comm=)
+	echo ${cmd##-}
+}
+
+function __debug {
+	__set_goenv
+
+	__log ${WORKDIR}
+	__log ${GOENV_GOPATH}
+	__log ${GOPATH}
+	__log ${GOENV_SHELL}
+
+	deactiviate
+}
+# *** end function define ***
+
+# *** variable define ***
+WORKDIR=$(dirname $(__get_realpath $0))
+PROJ_NAME=$(basename ${WORKDIR})
+
+# private gopath
+GOENV_GOPATH=$(__project_gopath)
+GOENV_SHELL=${SHELL:-$(__get_shell)}
+
+# main runtine
+case $1 in
+	debug) __debug break;;
+	*) __set_goenv break;;
+esac
