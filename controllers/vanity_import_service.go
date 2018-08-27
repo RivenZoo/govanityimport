@@ -20,10 +20,10 @@ func init() {
 	instance = &controller{}
 }
 
-func (c *controller) QueryImportMetaInfo(context.Context, *apidef.ImportMetaInfoReq) (*apidef.ImportMetaInfoResp, error) {
+func (c *controller) QueryImportMetaInfo(ctx context.Context, req *apidef.ImportMetaInfoReq) (*apidef.ImportMetaInfoResp, error) {
 	return nil, nil
 }
 
-func (c *controller) UpdateModuleMetaInfo(context.Context, *apidef.UpdateModuleMetaInfoReq) (*apidef.UpdateModuleMetaInfoResp, error) {
+func (c *controller) UpdateModuleMetaInfo(ctx context.Context, req *apidef.UpdateModuleMetaInfoReq) (*apidef.UpdateModuleMetaInfoResp, error) {
 	return nil, nil
 }

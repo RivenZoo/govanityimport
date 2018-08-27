@@ -7,6 +7,7 @@ import (
 	"govanityimport/tracing"
 	"govanityimport/rpcserver"
 	"govanityimport/controllers"
+	"govanityimport/authorize"
 	"govanityimport/proto/apidef"
 	sigutil "govanityimport/signal"
 	"os"
@@ -32,6 +33,8 @@ var serveCommand = &cobra.Command{
 		if cfg.Debug.Trace {
 			go tracing.StartGRPCTraceHTTPServer(ctx, cfg.Debug.GRPCTraceAddress)
 		}
+
+		authorize.InitToken(cfg.Authorize.RawTokens)
 		err = rpcserver.StartRPCServer(ctx, cfg.Listen, func(s *grpc.Server) {
 			apidef.RegisterVanityImportServiceServer(s, controllers.GetController())
 		})
