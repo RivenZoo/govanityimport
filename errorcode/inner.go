@@ -16,10 +16,8 @@ var (
 	ErrInnerInvalidToken      = NewInnerError(0x02000002, "invalid token")
 	ErrInnerHTTPReqError      = NewInnerError(0x02000003, "http request error")
 	ErrInnerHTTPRespError     = NewInnerError(0x02000004, "http response error")
-	ErrInnerQueryUserError    = NewInnerError(0x02000005, "query user error")
-	ErrInnerChannelNotSupport = NewInnerError(0x02000006, "channel not support")
-	ErrInnerJSONEncodeError   = NewInnerError(0x02000007, "json encode error")
-	ErrInnerJSONDecodeError   = NewInnerError(0x02000008, "json decode error")
+	ErrInnerJSONEncodeError   = NewInnerError(0x02000005, "json encode error")
+	ErrInnerJSONDecodeError   = NewInnerError(0x02000006, "json decode error")
 
 	_ error = InnerError{}
 )

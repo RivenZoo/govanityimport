@@ -10,6 +10,7 @@ var (
 	ErrClientDeprecated = NewError(4001003, "this version of client is deprecated")
 	ErrServerError      = NewError(5001001, "server error")
 	ErrServerBusy       = NewError(5001002, "server busy")
+	ErrNoModuleInfo     = NewError(5001003, "no such module")
 
 	_ = (error)(BaseError{})
 )
