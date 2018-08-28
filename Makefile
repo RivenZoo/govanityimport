@@ -39,3 +39,5 @@ $(BUILD_DIR)/$(PROJNAME): $(GOSRC) gopath
 
 clean:
 	@-rm -f $(proto_target) $(BUILD_DIR)/*
+
+include ./make_test.mk
