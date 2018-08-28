@@ -83,7 +83,6 @@ func (c *controller) QueryImportMetaInfo(ctx context.Context, req *apidef.Import
 	requestID := ctx.Value(headers.HeaderRequestID).(string)
 	method := ctx.Value(headers.ContextKeyRPCMethod)
 
-	m := model.GetImportMetaModel()
 	log := zaplog.GetSugarLogger()
 
 	importPath := strings.TrimRight(req.ImportPath, "/")
@@ -141,10 +140,28 @@ func (c *controller) deleteModuleMetaInfo(ctx context.Context, req *apidef.Updat
 }
 
 func (c *controller) assignModuleMetaInfo(src, dst *apidef.ModuleMetaInfo) {
+	if src == nil || dst == nil {
+		return
+	}
 	if len(src.SubImportDirs) != 0 {
 		dst.SubImportDirs = src.SubImportDirs
 	}
-
+	if src.ImportInfo != nil {
+		if dst.ImportInfo == nil {
+			dst.ImportInfo = src.ImportInfo
+		} else {
+			assignNonEmptyByFieldName(src.ImportInfo, dst.ImportInfo,
+				"ModuleImportPath", "RepoUrl", "Vcs")
+		}
+	}
+	if src.SourceInfo != nil {
+		if dst.SourceInfo == nil {
+			dst.SourceInfo = src.SourceInfo
+		} else {
+			assignNonEmptyByFieldName(src.SourceInfo, dst.SourceInfo,
+				"ModuleImportPath", "DirPattern", "DocHost", "FilePattern", "HomeUrl")
+		}
+	}
 }
 
 func (c *controller) setModuleMetaInfo(ctx context.Context, req *apidef.UpdateModuleMetaInfoReq, resp *apidef.UpdateModuleMetaInfoResp) {
