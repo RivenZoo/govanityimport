@@ -9,6 +9,7 @@ import (
 	"govanityimport/controllers"
 	"govanityimport/authorize"
 	"govanityimport/proto/apidef"
+	"govanityimport/model"
 	sigutil "govanityimport/signal"
 	"os"
 	"fmt"
@@ -35,6 +36,9 @@ var serveCommand = &cobra.Command{
 		}
 
 		authorize.InitToken(cfg.Authorize.RawTokens)
+		model.InitModel()
+		defer model.Close()
+
 		err = rpcserver.StartRPCServer(ctx, cfg.Listen, func(s *grpc.Server) {
 			apidef.RegisterVanityImportServiceServer(s, controllers.GetController())
 		})

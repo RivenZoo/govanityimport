@@ -36,9 +36,10 @@ var gatewayCmd = &cobra.Command{
 		if cfg.Debug.Trace {
 			go tracing.StartGRPCTraceHTTPServer(ctx, cfg.Debug.GRPCTraceAddress)
 		}
-		gateway.StartGateway(ctx, cfg.Listen, func(ctx context.Context, mux *runtime.ServeMux, opts []grpc.DialOption) error {
-			return apidef.RegisterVanityImportServiceHandlerFromEndpoint(ctx, mux, cfg.Gateway.Endpoint, opts)
-		})
+		gateway.StartGateway(ctx, cfg.Listen,
+			func(ctx context.Context, mux *runtime.ServeMux, opts []grpc.DialOption) error {
+				return apidef.RegisterVanityImportServiceHandlerFromEndpoint(ctx, mux, cfg.Gateway.Endpoint, opts)
+			})
 	},
 }
 

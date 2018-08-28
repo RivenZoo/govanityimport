@@ -12,8 +12,13 @@ type Config struct {
 		Trace            bool
 		GRPCTraceAddress string
 	}
-	Authorize struct{
+	Authorize struct {
 		RawTokens []string
+	}
+	MetaInfoRedis struct {
+		Addr     string
+		Password string
+		DB       int
 	}
 }
 
