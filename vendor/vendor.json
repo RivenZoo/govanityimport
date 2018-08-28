@@ -9,6 +9,54 @@
 			"revisionTime": "2018-01-10T05:33:47Z"
 		},
 		{
+			"checksumSHA1": "rXHXuSBPHfYNmJTwS/t/UkDZL6g=",
+			"path": "github.com/go-redis/redis",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "KjFYC6Up+idb3YNplOt4ylBbqYk=",
+			"path": "github.com/go-redis/redis/internal",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "GQZsUVg/+6UpQAYpc4luMvMutSI=",
+			"path": "github.com/go-redis/redis/internal/consistenthash",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "l66eTZiJqueypc56HXCakGDm784=",
+			"path": "github.com/go-redis/redis/internal/hashtag",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "WoUjtqpn00RUnAgZLljk3lWfpSQ=",
+			"path": "github.com/go-redis/redis/internal/pool",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "zCo0t+gRBbctwyIpkDLrqRFtXew=",
+			"path": "github.com/go-redis/redis/internal/proto",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "sjbjSJrTdvyDwNjrWjTNeXgUhaU=",
+			"path": "github.com/go-redis/redis/internal/singleflight",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
+			"checksumSHA1": "1PH2NoAB/u3IZmLYyCrIbOzqLZ4=",
+			"path": "github.com/go-redis/redis/internal/util",
+			"revision": "86155dcfb790949e47605802d91e803475a570f3",
+			"revisionTime": "2018-08-27T05:29:25Z"
+		},
+		{
 			"checksumSHA1": "BP2buXHHOKxI5eYS2xELVng2kf4=",
 			"path": "github.com/golang/protobuf/jsonpb",
 			"revision": "b27b920f9e71b439b873b17bf99f56467623814a",
@@ -517,12 +565,6 @@
 			"path": "google.golang.org/grpc/tap",
 			"revision": "e00d24941bcee35dd163f4377d5371349f14baaf",
 			"revisionTime": "2018-08-22T16:00:39Z"
-		},
-		{
-			"checksumSHA1": "aiZy5j5jCI9Ps29OHxMz5yj8x4g=",
-			"path": "gopkg.in/redis.v6",
-			"revision": "1614e579ed966441b8e0c3ccea1dd0fbbd93a6ae",
-			"revisionTime": "2018-08-23T13:15:29Z"
 		},
 		{
 			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
