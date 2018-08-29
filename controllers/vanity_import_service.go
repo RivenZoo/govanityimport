@@ -83,6 +83,8 @@ func (c *controller) QueryImportMetaInfo(ctx context.Context, req *apidef.Import
 	requestID := ctx.Value(headers.HeaderRequestID).(string)
 	method := ctx.Value(headers.ContextKeyRPCMethod)
 
+	resp.TraceId = requestID
+
 	log := zaplog.GetSugarLogger()
 
 	importPath := strings.TrimRight(req.ImportPath, "/")
@@ -121,6 +123,8 @@ func (c *controller) UpdateModuleMetaInfo(ctx context.Context, req *apidef.Updat
 func (c *controller) deleteModuleMetaInfo(ctx context.Context, req *apidef.UpdateModuleMetaInfoReq, resp *apidef.UpdateModuleMetaInfoResp) {
 	requestID := ctx.Value(headers.HeaderRequestID).(string)
 	method := ctx.Value(headers.ContextKeyRPCMethod)
+
+	resp.TraceId = requestID
 
 	m := model.GetImportMetaModel()
 	log := zaplog.GetSugarLogger()

@@ -11,10 +11,11 @@ import (
 )
 
 var (
-	staticTokens map[string]bool
+	staticTokens = map[string]bool{}
 )
 
 func InitToken(tokens []string) {
+
 	for _, token := range tokens {
 		staticTokens[token] = true
 	}
