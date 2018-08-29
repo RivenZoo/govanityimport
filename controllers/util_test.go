@@ -161,6 +161,13 @@ func Test_isZero(t *testing.T) {
 			name string
 			args args
 			want bool
+		}{name: "array nil", args: args{
+			v: reflect.ValueOf(([]int)(nil)),
+		}, want: true},
+		struct {
+			name string
+			args args
+			want bool
 		}{name: "struct", args: args{
 			v: reflect.ValueOf(struct {
 				Str string
