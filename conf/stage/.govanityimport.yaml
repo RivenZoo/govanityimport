@@ -1,0 +1,13 @@
+DeployEnv: stage
+Listen: ":7000"
+Debug:
+  Trace: true
+  GRPCTraceAddress: ":15050"
+Authorize:
+  RawTokens:
+  - "3377a764543e9bc7bc4591c2ec2d8347"
+  - "f4316d6fa853e88ad389550fbdca15a5"
+MetaInfoRedis:
+  Addr: "localhost:6379"
+  Password: ""
+  DB: 0

@@ -1,0 +1,8 @@
+DeployEnv: stage
+Listen: ":8000"
+Gateway:
+  Endpoint: "localhost:7000"
+Debug:
+  Trace: true
+  GRPCTraceAddress: ":15051"
+
