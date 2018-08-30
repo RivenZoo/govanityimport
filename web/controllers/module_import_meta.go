@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"govanityimport/proto/apidef"
-	"govanityimport/config"
-	"govanityimport/errorcode"
-	"govanityimport/zaplog"
-	"govanityimport/headers"
+	"github.com/RivenZoo/govanityimport/proto/apidef"
+	"github.com/RivenZoo/govanityimport/config"
+	"github.com/RivenZoo/govanityimport/errorcode"
+	"github.com/RivenZoo/govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/headers"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/balancer/roundrobin"
 	"context"

@@ -14,7 +14,7 @@
 
 package main
 
-import "govanityimport/web/cmd"
+import "github.com/RivenZoo/govanityimport/web/cmd"
 
 func main() {
 	cmd.Execute()

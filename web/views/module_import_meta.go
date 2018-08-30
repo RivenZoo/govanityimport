@@ -3,9 +3,9 @@ package views
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/render"
-	"govanityimport/web/controllers"
-	"govanityimport/zaplog"
-	"govanityimport/errorcode"
+	"github.com/RivenZoo/govanityimport/web/controllers"
+	"github.com/RivenZoo/govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/errorcode"
 	"strings"
 	"net/http"
 	"html/template"

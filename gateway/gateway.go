@@ -11,8 +11,8 @@ import (
 	"google.golang.org/grpc/balancer/roundrobin"
 	"github.com/lithammer/shortuuid"
 	"google.golang.org/grpc/metadata"
-	"govanityimport/headers"
-	"govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/headers"
+	"github.com/RivenZoo/govanityimport/zaplog"
 )
 
 type EndpointRegistryFunc func(ctx context.Context, mux *runtime.ServeMux, opts []grpc.DialOption) error

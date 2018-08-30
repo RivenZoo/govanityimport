@@ -3,7 +3,7 @@ package zaplog
 import (
 	"go.uber.org/zap"
 	"fmt"
-	"govanityimport/config"
+	"github.com/RivenZoo/govanityimport/config"
 )
 
 

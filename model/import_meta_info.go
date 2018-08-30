@@ -2,9 +2,9 @@ package model
 
 import (
 	"github.com/go-redis/redis"
-	"govanityimport/proto/apidef"
-	"govanityimport/config"
-	"govanityimport/errorcode"
+	"github.com/RivenZoo/govanityimport/proto/apidef"
+	"github.com/RivenZoo/govanityimport/config"
+	"github.com/RivenZoo/govanityimport/errorcode"
 	"github.com/golang/protobuf/jsonpb"
 	"fmt"
 	"bytes"

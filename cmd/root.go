@@ -21,7 +21,7 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"govanityimport/config"
+	"github.com/RivenZoo/govanityimport/config"
 )
 
 var cfgFile string
@@ -31,7 +31,7 @@ var (
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "govanityimport",
+	Use:   "github.com/RivenZoo/govanityimport",
 	Short: "Golang vanity import server and client.",
 	Long:  ``,
 	// Uncomment the following line if your bare application

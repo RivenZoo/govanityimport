@@ -4,8 +4,8 @@ import (
 	"context"
 	"google.golang.org/grpc/metadata"
 	"github.com/grpc-ecosystem/go-grpc-middleware/auth"
-	"govanityimport/zaplog"
-	"govanityimport/headers"
+	"github.com/RivenZoo/govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/headers"
 	"google.golang.org/grpc/status"
 	"google.golang.org/grpc/codes"
 )

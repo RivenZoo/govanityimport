@@ -2,11 +2,11 @@ package controllers
 
 import (
 	"context"
-	"govanityimport/proto/apidef"
-	"govanityimport/errorcode"
-	"govanityimport/headers"
-	"govanityimport/model"
-	"govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/proto/apidef"
+	"github.com/RivenZoo/govanityimport/errorcode"
+	"github.com/RivenZoo/govanityimport/headers"
+	"github.com/RivenZoo/govanityimport/model"
+	"github.com/RivenZoo/govanityimport/zaplog"
 	"strings"
 	"github.com/go-redis/redis"
 )

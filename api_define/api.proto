@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package apidef;
 
-option go_package = "govanityimport/proto/apidef";
+option go_package = "github.com/RivenZoo/govanityimport/proto/apidef";
 
 message VanityImportMetaInfo {
     string module_import_path = 1;

@@ -8,8 +8,8 @@ import (
 	"context"
 	"google.golang.org/grpc/metadata"
 	"github.com/lithammer/shortuuid"
-	"govanityimport/headers"
-	"govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/headers"
+	"github.com/RivenZoo/govanityimport/zaplog"
 	"fmt"
 	"time"
 )

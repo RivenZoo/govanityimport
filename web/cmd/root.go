@@ -21,11 +21,11 @@ import (
 	"github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
-	"govanityimport/config"
-	"govanityimport/zaplog"
-	"govanityimport/web/server"
-	"govanityimport/web/views"
-	sigutil "govanityimport/signal"
+	"github.com/RivenZoo/govanityimport/config"
+	"github.com/RivenZoo/govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/web/server"
+	"github.com/RivenZoo/govanityimport/web/views"
+	sigutil "github.com/RivenZoo/govanityimport/signal"
 )
 
 var cfgFile string

@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"context"
-	"govanityimport/proto/apidef"
+	"github.com/RivenZoo/govanityimport/proto/apidef"
 	"reflect"
 	"testing"
 )

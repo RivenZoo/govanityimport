@@ -6,9 +6,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"net"
 	"time"
-	"govanityimport/version"
-	"govanityimport/web/views"
-	"govanityimport/web/controllers"
+	"github.com/RivenZoo/govanityimport/version"
+	"github.com/RivenZoo/govanityimport/web/views"
+	"github.com/RivenZoo/govanityimport/web/controllers"
 	"github.com/gin-contrib/location"
 )
 

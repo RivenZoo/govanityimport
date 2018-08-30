@@ -7,9 +7,9 @@ import (
 	"net"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"govanityimport/authorize"
-	"govanityimport/zaplog"
-	"govanityimport/interceptor"
+	"github.com/RivenZoo/govanityimport/authorize"
+	"github.com/RivenZoo/govanityimport/zaplog"
+	"github.com/RivenZoo/govanityimport/interceptor"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
