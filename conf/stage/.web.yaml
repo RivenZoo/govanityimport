@@ -1,0 +1,7 @@
+DeployEnv: stage
+Listen: ":8000"
+Web:
+  ModuleServiceAddress: "localhost:7000"
+  AuthToken: "f4316d6fa853e88ad389550fbdca15a5"
+
+

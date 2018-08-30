@@ -2,6 +2,11 @@ package config
 
 import "encoding/json"
 
+const (
+	EnvProd  = "prod"
+	EnvStage = "stage"
+)
+
 type Config struct {
 	DeployEnv string
 	Listen    string
@@ -19,6 +24,10 @@ type Config struct {
 		Addr     string
 		Password string
 		DB       int
+	}
+	Web struct {
+		ModuleServiceAddress string
+		AuthToken            string
 	}
 }
 
