@@ -6,5 +6,6 @@ const (
 )
 
 const (
-	ContextKeyRPCMethod = "rpc-method"
+	ContextKeyRPCMethod     = "rpc-method"
+	ContextKeyAuthorization = "authorization"
 )

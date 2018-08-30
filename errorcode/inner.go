@@ -18,6 +18,7 @@ var (
 	ErrInnerHTTPRespError     = NewInnerError(0x02000004, "http response error")
 	ErrInnerJSONEncodeError   = NewInnerError(0x02000005, "json encode error")
 	ErrInnerJSONDecodeError   = NewInnerError(0x02000006, "json decode error")
+	ErrInnerQueryModuleError  = NewInnerError(0x02000007, "query module error")
 
 	_ error = InnerError{}
 )

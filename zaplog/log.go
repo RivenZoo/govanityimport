@@ -3,13 +3,9 @@ package zaplog
 import (
 	"go.uber.org/zap"
 	"fmt"
+	"govanityimport/config"
 )
 
-const (
-	LogEnvProd   = "prod"
-	LogEnvStage  = "stage"
-	LogEnvGlobal = "global"
-)
 
 var (
 	logger *zap.Logger
@@ -24,9 +20,9 @@ func InitLogger(env string) error {
 
 	var err error
 	switch env {
-	case LogEnvStage:
+	case config.EnvStage:
 		logger, err = zap.NewDevelopment()
-	case LogEnvProd:
+	case config.EnvProd:
 		logger, err = zap.NewProduction()
 	default:
 		logger = zap.L()

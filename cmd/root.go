@@ -99,4 +99,5 @@ func initConfig() {
 		fmt.Fprintln(os.Stderr, "Unmarshal config error: ", err)
 		os.Exit(-1)
 	}
+	fmt.Fprintln(os.Stdout, "config: %s", cfg)
 }

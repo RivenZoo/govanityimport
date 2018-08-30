@@ -37,7 +37,7 @@ func init() {
 	instance = &controller{}
 }
 
-func (c *controller) SetErrorResponse(err error, resp interface{}, method int) {
+func (c *controller) setErrorResponse(err error, resp interface{}, method int) {
 	e := errorcode.OK
 	switch err.(type) {
 	case errorcode.InnerError:
@@ -96,11 +96,11 @@ func (c *controller) QueryImportMetaInfo(ctx context.Context, req *apidef.Import
 			"method", method,
 			"module", importPath,
 			"error", err)
-		c.SetErrorResponse(errorcode.ErrNoModuleInfo, resp, queryImportMetaInfoMethod)
+		c.setErrorResponse(errorcode.ErrNoModuleInfo, resp, queryImportMetaInfoMethod)
 		return resp, nil
 	}
 
-	c.SetErrorResponse(errorcode.OK, resp, queryImportMetaInfoMethod)
+	c.setErrorResponse(errorcode.OK, resp, queryImportMetaInfoMethod)
 	resp.TraceId = requestID
 	resp.MetaInfo = metaInfo
 	return resp, nil
@@ -115,7 +115,7 @@ func (c *controller) UpdateModuleMetaInfo(ctx context.Context, req *apidef.Updat
 	case DeleteModuleAction:
 		c.deleteModuleMetaInfo(ctx, req, resp)
 	default:
-		c.SetErrorResponse(errorcode.ErrBadRequest, resp, updateModuleMetaInfoMethod)
+		c.setErrorResponse(errorcode.ErrBadRequest, resp, updateModuleMetaInfoMethod)
 	}
 	return resp, nil
 }
@@ -137,10 +137,10 @@ func (c *controller) deleteModuleMetaInfo(ctx context.Context, req *apidef.Updat
 			"method", method,
 			"module", importPath,
 			"error", err)
-		c.SetErrorResponse(errorcode.ErrNoModuleInfo, resp, updateModuleMetaInfoMethod)
+		c.setErrorResponse(errorcode.ErrNoModuleInfo, resp, updateModuleMetaInfoMethod)
 		return
 	}
-	c.SetErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
+	c.setErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
 }
 
 func (c *controller) assignModuleMetaInfo(src, dst *apidef.ModuleMetaInfo) {
@@ -185,7 +185,7 @@ func (c *controller) setModuleMetaInfo(ctx context.Context, req *apidef.UpdateMo
 				"method", method,
 				"module", importPath,
 				"error", err)
-			c.SetErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
+			c.setErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
 			return
 		}
 		// first set meta info
@@ -196,10 +196,10 @@ func (c *controller) setModuleMetaInfo(ctx context.Context, req *apidef.UpdateMo
 				"method", method,
 				"module", importPath,
 				"error", err)
-			c.SetErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
+			c.setErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
 			return
 		}
-		c.SetErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
+		c.setErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
 		return
 	}
 	c.assignModuleMetaInfo(req.MetaInfo, metaInfo)
@@ -210,8 +210,8 @@ func (c *controller) setModuleMetaInfo(ctx context.Context, req *apidef.UpdateMo
 			"method", method,
 			"module", importPath,
 			"error", err)
-		c.SetErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
+		c.setErrorResponse(errorcode.ErrServerError, resp, updateModuleMetaInfoMethod)
 		return
 	}
-	c.SetErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
+	c.setErrorResponse(errorcode.OK, resp, updateModuleMetaInfoMethod)
 }
